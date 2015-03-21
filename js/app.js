@@ -3,10 +3,8 @@ $(document).ready(function() {
 	
 	if(count != count) { //NaN is treated as being unequal to itself
 		alert("That is not a valid number.");
-		break;
 	} else if (count % 1 != 0) {
 		alert("Please use a whole number.");
-		break;
 	} else {
 		fizzBuzz(count);
 	}
