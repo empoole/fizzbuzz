@@ -1,15 +1,32 @@
 $(document).ready(function() {
-	for (var i = 1; i <= 100; i++) {
-		$('body').append('<p>' + fizzBuzz(i) + '</p>');
+	var count = parseInt(prompt("Enter a number to count to: "), 10);
+	
+	if(count != count) { //NaN is treated as being unequal to itself
+		alert("That is not a valid number.");
+		break;
+	} else if (count % 1 != 0) {
+		alert("Please use a whole number.");
+		break;
+	} else {
+		fizzBuzz(count);
 	}
 });
 
-function fizzBuzz(number) {
-	if (number % 3 === 0 && number % 5 === 0) {
-		return "fizzbuzz";
-	} else if(number % 3 === 0) {
-		return "fizz";
-	} else if (number % 5 === 0) {
-		return "buzz";
-	} else return number;
+function fizzBuzz(countTo) {
+	for (var i = 1; i <= countTo; i++) {	
+		var out = '';
+		if (i % 3 === 0) {
+			out += "fizz";
+		}
+		
+		if(i % 5 === 0) {
+			out += "buzz";
+		}
+		
+		if (out) {
+			$('body').append('<p>' + out + '</p>');
+		} else {
+			$('body').append('<p>' + i + '</p>');
+		}
+	}
 }
